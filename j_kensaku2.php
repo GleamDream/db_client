@@ -15,9 +15,9 @@
 			}
 			echo "
 				<p>検索する氏名の一部を入力する.</p>
-				<form action\"j_kensaku1.php\" method=\"post\">
-					<p>検索氏名:<input type=\"text\" name=\"nam\"value=\"$name\" size=\"40\"></p>
-					<p><input type=\"submit\" value=\"登録\">
+				<form action\"j_kensaku2.php\" method=\"post\">
+					<p>検索氏名:<input type=\"text\" name=\"nam\" value=\"$name\" size=\"40\"></p>
+					<p><input type=\"submit\" value=\"検索\">
 					<input type=\"reset\" value=\"リセット\"></p>
 				</form>
 			";
@@ -66,9 +66,16 @@
 						echo $row["meruado"];
 						echo "<br />";
 						echo $row["biko"];
-						echo "</p><hr />";
+						echo "</p>";
+						echo "<a href=\"j_shusei1.php?id=";
+						echo $row["renban"];
+						echo "\">[このレコードを修正する]</a>	";
+						echo "<a href=\"j_sakujo1.php?id=";
+						echo $row["renban"];
+						echo "\">[このレコードを削除する]</a><hr>";
 					}
 				}
+				mysqli_close($link);
 			}
 		?>
 		</p>
