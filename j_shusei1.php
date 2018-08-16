@@ -12,12 +12,6 @@
 			extract($_GET);
 
 			$link = mysqli_connect('localhost', 'root', '', 'lesson');
-			/*if(mysqli_connect_errno()){
-				printf("Connect failed: %s\n", mysqli_connect_error());
-				exit();
-			} else {
-				echo "<p>Success connect to lesson</p>";
-			}*/
 			if(isset($_POST['nam'])) {
 				$sqli = "update jushoroku set
 					torokubi = '$tou',
@@ -37,15 +31,12 @@
 				} else {
 					echo "レコードの修正に失敗しました.";
 				}
+				echo "<p><a href=\"j_specification.html\">ホームページへ戻る</a></p>";
 				mysqli_close($link);
 				exit;
 			}
 			$sqli  = "select * from jushoroku where renban = '$id'";
-			if($result = mysqli_query($link, $sqli)){
-				/*echo "<p>Success : select</p>";*/
-			} else {
-				/*echo "<p>Failure : select</p>";*/
-			}
+			$result = mysqli_query($link, $sqli)){
 			$rows = mysqli_num_rows($result);
 			if($rows==0) {
 				echo "<p>該当データがありません</p>";
@@ -109,6 +100,8 @@
 					echo "<p><input type=\"submit\" value=\"修正\">";
 					echo "<input type=\"reset\" value=\"リセット\"></p>";
 					echo "</form>";
+
+					echo "<p><a href=\"j_specification.html\">ホームページへ戻る</a></p>";
 				}
 			}
 		?>

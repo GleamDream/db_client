@@ -10,18 +10,13 @@
 		<?php
 			extract($_GET);
 			$link = mysqli_connect('localhost', 'root', '', 'lesson');
-			/*if(mysqli_connect_errno()){
-				echo "<p>Failure connect to lesson<p>";
-				exit();
-			} else {
-				echo "Success connect to lesson";
-			}*/
 			$sqli  = "delete from jushoroku where renban = '$id'";
-			if($result = mysqli_query($link, $sqli)){
-				/*echo "<p>Success delete query</p>";*/
+			if(mysqli_query($link, $sqli)){
+				echo "<p>削除が完了しました</p>";
 			} else {
-				/*echo "<p>Failure delete query</p>";*/
+				echo "<p>削除に失敗しました</p>";
 			}
+			echo "<p><a href=\"j_specification.html\">ホームページへ戻る</a></p>";
 			mysqli_close($link);
 		?>
 		</p>

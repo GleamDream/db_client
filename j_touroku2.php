@@ -10,19 +10,14 @@
 		<?php
 			extract($_POST);
 			$link = mysqli_connect('localhost', 'root', '', 'lesson');
-			/*if(mysqli_connect_errno()){
-				echo "<p>Failure connect to lesson</p>";
-				exit();
-			} else {
-				echo "<p>Success connect to lesson</p>";
-			}*/
 			$today = date("y-m-d");
 			$sqli  = "insert into jushoroku(name, yubin1, yubin2, jusho1, jusho2, denwa, fax, keitai, meruado, biko, torokubi) values('$nam', '$yu1', '$yu2', '$ju1', '$ju2', '$tel', '$fax', '$kei', '$mal', '$bik', '$today')";
 			if(mysqli_query($link, $sqli)){
-				/*echo "<p>insert returned success</p>";*/
+				echo "<p>'$nam'様の住所録登録完了しました.</p>";
 			} else {
-				/*echo "<p>insert returned failure</p>";*/
+				echo "<p>住所録登録失敗しました.</p>";
 			}
+			echo "<p><a href=\"j_touroku1.html\">新規登録</a>	<a href=\"j_specification.html\">HPへ戻る</a></p>";
 			mysqli_close($link);
 		?>
 		</p>

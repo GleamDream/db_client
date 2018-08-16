@@ -20,21 +20,12 @@
 					<p><input type=\"submit\" value=\"検索\">
 					<input type=\"reset\" value=\"リセット\"></p>
 				</form>
+				<p><a href=\"j_specification.html\">ホームページへ戻る</a></p>
 			";
 			if ($name<>'') {
 				$link = mysqli_connect('localhost', 'root', '', 'lesson');
-				/*if(mysqli_connect_errno()){
-					echo "<p>Failure connect to lesson</p>";
-					exit();
-				} else {
-					echo "<p>Success connect to lesson</p>";
-				}*/
 				$sqli  = "select * from jushoroku where name like '%$nam%'";
-				if($result = mysqli_query($link, $sqli)){
-					/*echo "<p>insert returned success</p>";*/
-				} else {
-					/*echo "<p>insert returned false</p>";*/
-				}
+				$result = mysqli_query($link, $sqli)){
 				$rows = mysqli_num_rows($result);
 				if($rows==0) {
 					echo "<p>該当データがありません</p>";
@@ -73,6 +64,7 @@
 						echo "<a href=\"j_sakujo1.php?id=";
 						echo $row["renban"];
 						echo "\">[このレコードを削除する]</a><hr>";
+
 					}
 				}
 				mysqli_close($link);
