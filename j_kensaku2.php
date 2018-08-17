@@ -25,7 +25,7 @@
 			if ($name<>'') {
 				$link = mysqli_connect('localhost', 'root', '', 'lesson');
 				$sqli  = "select * from jushoroku where name like '%$nam%'";
-				$result = mysqli_query($link, $sqli)){
+				$result = mysqli_query($link, $sqli);
 				$rows = mysqli_num_rows($result);
 				if($rows==0) {
 					echo "<p>該当データがありません</p>";

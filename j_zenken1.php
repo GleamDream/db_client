@@ -11,18 +11,12 @@
 			extract($_POST);
 			echo "<p><a href=\"j_specification.html\">ホームページへ戻る</a></p>";
 			$link = mysqli_connect('localhost', 'root', '', 'lesson');
-			/*if(mysqli_connect_errno()){
-				printf("Connect failed: %s\n", mysqli_connect_error());
-				exit();
-			} else {
-				echo "<p>Success connect to lesson</p>";
-			}*/
 			$today = date("y-m-d");
 			$sqli  = "select * from jushoroku";
 			if($result = mysqli_query($link, $sqli)){
-				/*echo "<p>insert returned success</p>";*/
+				echo "<p>全件取得完了しました.</p>";
 			} else {
-				/*echo "<p>insert returned false</p>";*/
+				echo "<p>全件取得に失敗しました.</p>";
 			}
 			$rows = mysqli_num_rows($result);
 			if($rows==0) {

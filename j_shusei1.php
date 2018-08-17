@@ -36,7 +36,7 @@
 				exit;
 			}
 			$sqli  = "select * from jushoroku where renban = '$id'";
-			$result = mysqli_query($link, $sqli)){
+			$result = mysqli_query($link, $sqli);
 			$rows = mysqli_num_rows($result);
 			if($rows==0) {
 				echo "<p>該当データがありません</p>";
